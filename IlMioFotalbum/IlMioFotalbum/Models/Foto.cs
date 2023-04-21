@@ -29,8 +29,6 @@ namespace IlMioFotalbum.Models
         [Required(ErrorMessage = "Visibilità da dichiarare!")]
         public bool IsVisible { get; set; }
 
-        [Required(ErrorMessage = "Categoria obbligatoria!")]
-        public int? CategoryId { get; set; }
-        public Category? Category { get; set; }
+        public List<Category>? Categories { get; set; }
     }
 }

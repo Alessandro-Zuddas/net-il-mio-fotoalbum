@@ -64,6 +64,22 @@ namespace IlMioFotalbum.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Fotos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    ImgPath = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsVisible = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fotos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -170,24 +186,25 @@ namespace IlMioFotalbum.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Fotos",
+                name: "CategoryFoto",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    ImgPath = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsVisible = table.Column<bool>(type: "bit", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoriesId = table.Column<int>(type: "int", nullable: false),
+                    FotosId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Fotos", x => x.Id);
+                    table.PrimaryKey("PK_CategoryFoto", x => new { x.CategoriesId, x.FotosId });
                     table.ForeignKey(
-                        name: "FK_Fotos_Categories_CategoryId",
-                        column: x => x.CategoryId,
+                        name: "FK_CategoryFoto_Categories_CategoriesId",
+                        column: x => x.CategoriesId,
                         principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CategoryFoto_Fotos_FotosId",
+                        column: x => x.FotosId,
+                        principalTable: "Fotos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -232,9 +249,9 @@ namespace IlMioFotalbum.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fotos_CategoryId",
-                table: "Fotos",
-                column: "CategoryId");
+                name: "IX_CategoryFoto_FotosId",
+                table: "CategoryFoto",
+                column: "FotosId");
         }
 
         /// <inheritdoc />
@@ -256,7 +273,7 @@ namespace IlMioFotalbum.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Fotos");
+                name: "CategoryFoto");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -266,6 +283,9 @@ namespace IlMioFotalbum.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Fotos");
         }
     }
 }

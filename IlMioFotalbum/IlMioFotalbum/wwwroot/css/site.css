@@ -16,3 +16,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*------- FOTOCONTROLLER(INDEX) MAIN -------*/
+
+.ms-background-index{
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+

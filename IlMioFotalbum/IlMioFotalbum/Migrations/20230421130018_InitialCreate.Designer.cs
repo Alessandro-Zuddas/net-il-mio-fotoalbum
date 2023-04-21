@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IlMioFotalbum.Migrations
 {
     [DbContext(typeof(FotoContext))]
-    [Migration("20230421091639_InitialCreate")]
+    [Migration("20230421130018_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,6 +24,21 @@ namespace IlMioFotalbum.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("CategoryFoto", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FotosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoriesId", "FotosId");
+
+                    b.HasIndex("FotosId");
+
+                    b.ToTable("CategoryFoto");
+                });
 
             modelBuilder.Entity("IlMioFotalbum.Models.Category", b =>
                 {
@@ -51,10 +66,6 @@ namespace IlMioFotalbum.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CategoryId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -73,8 +84,6 @@ namespace IlMioFotalbum.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Fotos");
                 });
@@ -277,15 +286,19 @@ namespace IlMioFotalbum.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("IlMioFotalbum.Models.Foto", b =>
+            modelBuilder.Entity("CategoryFoto", b =>
                 {
-                    b.HasOne("IlMioFotalbum.Models.Category", "Category")
-                        .WithMany("Fotos")
-                        .HasForeignKey("CategoryId")
+                    b.HasOne("IlMioFotalbum.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.HasOne("IlMioFotalbum.Models.Foto", null)
+                        .WithMany()
+                        .HasForeignKey("FotosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -337,11 +350,6 @@ namespace IlMioFotalbum.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("IlMioFotalbum.Models.Category", b =>
-                {
-                    b.Navigation("Fotos");
                 });
 #pragma warning restore 612, 618
         }

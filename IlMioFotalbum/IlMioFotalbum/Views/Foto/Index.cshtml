@@ -4,9 +4,36 @@
 @{
     ViewData["Title"] = "Home Page";
 
-    var foto = @Model;
+    var fotos = @Model;
 }
 
-<div>
-    <h1>Funziona!</h1>
+<div class="container text-center ms-background-index px-2 py-2">
+    <h1 class="ms-main-title">Le mie foto principali!</h1>
+
+    <div class="row px-4 py-2 gx-2">
+        @foreach (var foto in fotos)
+        {
+            @if (@foto.IsVisible is true)
+            {
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                      <img src="@foto.ImgPath" class="card-img-top" alt="@foto.Name">
+                      <div class="card-body">
+                        <h5 class="card-title">@foto.Name</h5>
+                        <p class="card-text">@foto.Description</p>
+                        <div class="py-2">
+                            @foreach (var cat in @foto.Categories!)
+                            {
+                                <span class="badge bg-warning">@cat.Name</span>
+                            }
+                        </div>
+                        <a href="@Url.Action("Detail", "Foto", new { id = foto.Id })" class="btn btn-success">
+                            Dettagli
+                        </a>
+                      </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
 </div>
