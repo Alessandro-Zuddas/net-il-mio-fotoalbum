@@ -24,8 +24,11 @@
                     }
                 </div>
                 <p class="card-text">@foto.Description</p>
-                <a href="#" class="btn btn-warning">Modifica</a>
-                <a href="#" class="btn btn-danger">Elimina</a>
+                <a href="@Url.Action("Update", "Foto", new { Id = foto.Id })" class="btn btn-warning">Modifica</a>
+                <form class="d-inline" asp-controller="Foto" asp-action="Delete" asp-route-id="@foto.Id" method="post">
+                    @Html.AntiForgeryToken()
+                    <button class="btn btn-danger"> Elimina </button>
+                </form>
               </div>
             </div>
 

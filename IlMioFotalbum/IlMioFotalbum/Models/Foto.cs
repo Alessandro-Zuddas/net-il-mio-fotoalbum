@@ -27,7 +27,7 @@ namespace IlMioFotalbum.Models
         public string? ImgPath { get; set; }
 
         [Required(ErrorMessage = "Visibilità da dichiarare!")]
-        public bool IsVisible { get; set; }
+        public string IsVisible { get; set; }
 
         public List<Category>? Categories { get; set; }
     }

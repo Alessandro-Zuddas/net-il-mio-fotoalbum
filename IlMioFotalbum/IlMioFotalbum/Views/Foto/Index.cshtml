@@ -13,9 +13,9 @@
     <div class="row px-4 py-2 gx-2">
         @foreach (var foto in fotos)
         {
-            @if (@foto.IsVisible is true)
+            @if (@foto.IsVisible is "Si")
             {
-                <div class="col">
+                <div class="col py-2">
                     <div class="card" style="width: 18rem;">
                       <img src="@foto.ImgPath" class="card-img-top" alt="@foto.Name">
                       <div class="card-body">
@@ -36,4 +36,6 @@
             }
         }
     </div>
+
+    <a class="btn btn-primary" href="@Url.Action("Create", "Foto")">Aggiungi</a>
 </div>

@@ -1,0 +1,47 @@
+﻿
+@model FotoFormModel
+
+@{
+
+}
+
+<div class="ms-container text-center">
+
+    <h1>Modifica la foto!</h1>
+
+    <form method="post" asp-controller="Foto" asp-action="Update" asp-route-id="@Model.Foto.Id" enctype="multipart/form-data">
+
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" asp-for="Foto.Id"/>
+
+      <div class="mb-3">
+        <label asp-for="Foto.ImgPath" class="form-label">Inserisci il percorso della foto:</label>
+        <input asp-for="Foto.ImgPath" class="form-control" id="ImgPath" aria-describedby="Name">
+        <span asp-validation-for="Foto.ImgPath" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label asp-for="Foto.Name" class="form-label">Inserisci il titolo della foto:</label>
+        <input asp-for="Foto.Name" type="text" class="form-control" id="Name" aria-describedby="Name">
+        <span asp-validation-for="Foto.Name" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label asp-for="Foto.Description" class="form-label">Inserisci la descrizione della foto:</label>
+        <input asp-for="Foto.Description" type="text" class="form-control" id="Description" aria-describedby="Description">
+        <span asp-validation-for="Foto.Description" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label asp-for="Foto.IsVisible" class="form-label">La foto sarà visibile? Inserisci una risposta. (Si / No):</label>
+        <input asp-for="Foto.IsVisible" type="text" class="form-control" id="IsVisible" aria-describedby="Price">
+        <span asp-validation-for="Foto.IsVisible" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label asp-for="SelectedCategories" class="form-label">Seleziona una o più categorie:</label>
+
+        <select asp-for="SelectedCategories" multiple="multiple" asp-items="@Model.Categories"></select>
+      </div>
+
+      <button type="submit" class="btn btn-success">Conferma</button>
+
+    </form>
+</div>

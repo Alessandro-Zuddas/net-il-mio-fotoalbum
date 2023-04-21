@@ -24,3 +24,8 @@ body {
     border-radius: 10px;
 }
 
+.ms-container{
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+}

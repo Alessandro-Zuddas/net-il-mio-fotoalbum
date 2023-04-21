@@ -34,35 +34,35 @@ namespace IlMioFotalbum.Models
                     Name = "Foto 1",
                     Description = "Descrizione foto 1",
                     ImgPath = "https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=",
-                    IsVisible = true,
+                    IsVisible = "Si",
                 },
                 new Foto
                 {
                     Name = "Foto 2",
                     Description = "Descrizione foto 2",
                     ImgPath = "https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=",
-                    IsVisible = true,
+                    IsVisible = "Si",
                 },
                 new Foto
                 {
                     Name = "Foto 3",
                     Description = "Descrizione foto 3",
                     ImgPath = "https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=",
-                    IsVisible = true,
+                    IsVisible = "Si",
                 },
                 new Foto
                 {
                     Name = "Foto 4",
                     Description = "Descrizione foto 4",
                     ImgPath = "https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=",
-                    IsVisible = true,
+                    IsVisible = "Si",
                 },
                 new Foto
                 {
                     Name = "Foto 5",
                     Description = "Descrizione foto 5",
                     ImgPath = "https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=",
-                    IsVisible = false,
+                    IsVisible = "Si",
                 }
             };
 
