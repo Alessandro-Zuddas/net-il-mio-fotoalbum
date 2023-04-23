@@ -1,0 +1,29 @@
+﻿@model Category[]
+
+@{
+    ViewData["Title"] = "Home Page";
+
+    var categories = @Model;
+}
+
+<div class="container-xs d-flex flex-column align-items-center">
+    <h1>Tutte le categorie: </h1>
+
+    @foreach (var cat in categories)
+    {
+        <div class="card d-flex flex-column align-items-center my-2" style="width: 25%; height: 100%;">
+            <div class="card-body">
+                <h5 class="card-title text-center">@cat.Name</h5>
+                <div>
+                    <a href="@Url.Action("Update", "Category", new { Id = cat.Id })" class="btn btn-warning">Modifica</a>
+                    <form class="d-inline" asp-controller="Category" asp-action="Delete" asp-route-id="@cat.Id" method="post">
+                        @Html.AntiForgeryToken()
+                        <button class="btn btn-danger"> Elimina </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+    <a class="btn btn-primary" href="@Url.Action("Create", "Category")">Aggiungi</a>
+</div>

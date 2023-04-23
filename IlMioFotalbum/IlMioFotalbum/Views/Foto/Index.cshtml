@@ -24,7 +24,7 @@
                         <div class="py-2">
                             @foreach (var cat in @foto.Categories!)
                             {
-                                <span class="badge bg-warning">@cat.Name</span>
+                                <a href="@Url.Action("Index", "Category")" class="badge bg-warning">@cat.Name</a>
                             }
                         </div>
                         <a href="@Url.Action("Detail", "Foto", new { id = foto.Id })" class="btn btn-success">
