@@ -1,4 +1,5 @@
 ﻿using IlMioFotalbum.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using System.Diagnostics;
 
 namespace IlMioFotalbum.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private readonly ILogger<CategoryController> _logger;
@@ -24,6 +26,7 @@ namespace IlMioFotalbum.Controllers
             return View(categories);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             using var ctx = new FotoContext();
@@ -33,6 +36,7 @@ namespace IlMioFotalbum.Controllers
             return View(formModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(CategoryFormModel form)
@@ -51,6 +55,7 @@ namespace IlMioFotalbum.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Update(int id)
         {
             using var ctx = new FotoContext();
@@ -70,6 +75,7 @@ namespace IlMioFotalbum.Controllers
             return View(formModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Update(int id, CategoryFormModel form)
@@ -89,6 +95,7 @@ namespace IlMioFotalbum.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)

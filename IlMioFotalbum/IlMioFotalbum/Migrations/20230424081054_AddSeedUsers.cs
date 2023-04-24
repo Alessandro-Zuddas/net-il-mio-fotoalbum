@@ -5,7 +5,7 @@
 namespace IlMioFotalbum.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCategoryFormModel : Migration
+    public partial class AddSeedUsers : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
