@@ -49,6 +49,7 @@ namespace IlMioFotalbum.Controllers
             return View(foto);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             using var ctx = new FotoContext();
@@ -61,6 +62,7 @@ namespace IlMioFotalbum.Controllers
             return View(formModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(FotoFormModel form)
@@ -83,6 +85,7 @@ namespace IlMioFotalbum.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Update(int id)
         {
             using var ctx = new FotoContext();
@@ -108,6 +111,7 @@ namespace IlMioFotalbum.Controllers
             return View(formModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Update(int id, FotoFormModel form)
@@ -129,6 +133,7 @@ namespace IlMioFotalbum.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)

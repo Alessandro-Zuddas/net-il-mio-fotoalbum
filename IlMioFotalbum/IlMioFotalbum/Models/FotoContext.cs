@@ -93,6 +93,34 @@ namespace IlMioFotalbum.Models
                 Categories.AddRange(seed);
             };
 
+            if (!Roles.Any())
+            {
+                var seed = new IdentityRole[]
+                {
+                    new("Admin"),
+                };
+
+                Roles.AddRange(seed);
+            }
+
+            if (Users.Any(u => u.Email == "admin@dev.com") && !UserRoles.Any())
+            {
+                var admin = Users.First(u => u.Email == "admin@dev.com");
+
+                var adminRole = Roles.First(r => r.Name == "Admin");
+
+                var seed = new IdentityUserRole<string>[]
+                {
+                    new()
+                    {
+                        UserId = admin.Id,
+                        RoleId = adminRole.Id,
+                    }
+                };
+
+                UserRoles.AddRange(seed);
+            }
+
             SaveChanges();
         }
     }

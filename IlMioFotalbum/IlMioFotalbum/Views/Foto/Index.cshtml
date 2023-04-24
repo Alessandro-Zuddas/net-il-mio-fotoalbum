@@ -37,5 +37,22 @@
         }
     </div>
 
-    <a class="btn btn-primary" href="@Url.Action("Create", "Foto")">Aggiungi</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-primary" href="@Url.Action("Create", "Foto")">Aggiungi</a>   
+    }
+</div>
+<div class="container-xs mt-2">
+    <form>
+        <h1>Contattaci!</h1>
+        <div class="my-2">
+            <label class="d-block" for="email" class="form-label">Inserisci la tua mail:</label>
+            <input class="form-control" name="email" type="email" value="" />
+        </div>
+        <div class="my-2">
+            <label class="d-block" for="message" class="form-label">Inserisci il tuo messaggio:</label>
+            <textarea class="form-control" name="message"></textarea>
+        </div>
+        <button class="btn btn-success" type="submit">Invia</button>
+    </form>
 </div>

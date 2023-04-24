@@ -15,15 +15,21 @@
             <div class="card-body">
                 <h5 class="card-title text-center">@cat.Name</h5>
                 <div>
-                    <a href="@Url.Action("Update", "Category", new { Id = cat.Id })" class="btn btn-warning">Modifica</a>
-                    <form class="d-inline" asp-controller="Category" asp-action="Delete" asp-route-id="@cat.Id" method="post">
-                        @Html.AntiForgeryToken()
-                        <button class="btn btn-danger"> Elimina </button>
-                    </form>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Update", "Category", new { Id = cat.Id })" class="btn btn-warning">Modifica</a>
+                        <form class="d-inline" asp-controller="Category" asp-action="Delete" asp-route-id="@cat.Id" method="post">
+                            @Html.AntiForgeryToken()
+                            <button class="btn btn-danger"> Elimina </button>
+                        </form> 
+                    }
                 </div>
             </div>
         </div>
     }
 
-    <a class="btn btn-primary" href="@Url.Action("Create", "Category")">Aggiungi</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-primary" href="@Url.Action("Create", "Category")">Aggiungi</a> 
+    }
 </div>

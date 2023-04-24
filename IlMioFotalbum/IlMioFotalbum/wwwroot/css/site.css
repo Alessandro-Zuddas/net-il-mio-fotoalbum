@@ -29,3 +29,11 @@ body {
     height: 50vh;
     margin: auto;
 }
+
+/*------- HOMEPAGE GUESTS -------*/
+
+.ms-col{
+    height: 100vh;
+    overflow-y: auto;
+    background-color: whitesmoke;
+}
