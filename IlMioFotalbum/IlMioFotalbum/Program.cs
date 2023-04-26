@@ -2,8 +2,9 @@ using IlMioFotalbum.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using IlMioFotalbum.Areas.Identity.Data;
-using FotoContextIdentity = IlMioFotalbum.Areas.Identity.Data.FotoContext;
+using FotoContextIdentity = IlMioFotalbum.Areas.Identity.Data.FotoContextIdentity;
 using FotoContext = IlMioFotalbum.Models.FotoContext;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,11 @@ builder.Services.AddDbContext<FotoContext>(options =>
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<FotoContextIdentity>();
+
+// Permette di ignorare il cycling
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

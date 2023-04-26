@@ -33,7 +33,7 @@ namespace IlMioFotalbum.Models
                 {
                     Name = "Foto 1",
                     Description = "Descrizione foto 1",
-                    ImgPath = "https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=",
+                    ImgPath = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq0CBbpYyKtqtr4MXgV-HNt6q6nB4ruWdUNw&usqp=CAU",
                     IsVisible = "Si",
                 },
                 new Foto
@@ -47,7 +47,7 @@ namespace IlMioFotalbum.Models
                 {
                     Name = "Foto 3",
                     Description = "Descrizione foto 3",
-                    ImgPath = "https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=",
+                    ImgPath = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVtn5QoueSCkz8qfh6Sf0dR1xfPLwhxDqVkQ&usqp=CAU",
                     IsVisible = "Si",
                 },
                 new Foto
@@ -61,7 +61,7 @@ namespace IlMioFotalbum.Models
                 {
                     Name = "Foto 5",
                     Description = "Descrizione foto 5",
-                    ImgPath = "https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=",
+                    ImgPath = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwQPWUPGPXn6K4bs9QeHkWOAU83P7zQV6pgQ&usqp=CAU",
                     IsVisible = "Si",
                 }
             };

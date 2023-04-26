@@ -27,8 +27,8 @@ namespace IlMioFotalbum.Migrations
                 table: "Fotos",
                 type: "bit",
                 nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldClrType: typeof(bool),
+                oldType: "bit");
         }
     }
 }

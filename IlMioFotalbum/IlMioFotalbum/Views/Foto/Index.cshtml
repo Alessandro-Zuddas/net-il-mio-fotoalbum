@@ -1,17 +1,17 @@
-﻿
-@model Foto[]
+﻿@*
+@model Foto[]*@
 
 @{
     ViewData["Title"] = "Home Page";
 
-    var fotos = @Model;
+     //var fotos = @Model;
 }
 
 <div class="container text-center ms-background-index px-2 py-2">
     <h1 class="ms-main-title">Le mie foto principali!</h1>
 
-    <div class="row px-4 py-2 gx-2">
-        @foreach (var foto in fotos)
+    <div class="row px-4 py-2 gx-2" id="ms-fotos">
+@*        @foreach (var foto in fotos)
         {
             @if (@foto.IsVisible is "Si")
             {
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             }
-        }
+        }*@
     </div>
 
     @if (User.IsInRole("Admin"))
@@ -56,3 +56,23 @@
         <button class="btn btn-success" type="submit">Invia</button>
     </form>
 </div>
+
+@section Scripts
+{
+    <script>
+
+        const fotos = getFotos()
+            .then(res => {
+                const fotos = res.data;
+                renderFotos(fotos);
+                console.log(fotos);
+        });
+
+    </script>
+}
+@*<div class="py-2">
+    @foreach (var cat in @foto.Categories!)
+    {
+        <a href="@Url.Action("Index", "Category")" class="badge bg-warning">@cat.Name</a>
+    }
+  </div>*@

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IlMioFotalbum.Migrations
 {
     [DbContext(typeof(FotoContext))]
-    [Migration("20230424080931_AddFixing")]
-    partial class AddFixing
+    [Migration("20230426083617_IdentityMigration")]
+    partial class IdentityMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
