@@ -23,17 +23,18 @@
 @if (!User.IsInRole("Admin"))
 {
 <div class="container-xs mt-2">
-    <form>
+    <form onsubmit="submitForm(event)">
         <h1>Contattaci!</h1>
         <div class="my-2">
             <label class="d-block" for="email" class="form-label">Inserisci la tua mail:</label>
-            <input class="form-control" name="email" type="email" value="" />
+            <input id="ms-email" class="form-control" name="email" type="email" value="" />
         </div>
         <div class="my-2">
             <label class="d-block" for="message" class="form-label">Inserisci il tuo messaggio:</label>
-            <textarea class="form-control" name="message"></textarea>
+            <textarea id="ms-message" class="form-control" name="message"></textarea>
         </div>
         <button class="btn btn-success" type="submit">Invia</button>
+        <button class="btn btn-warning" type="reset">Cancella</button>
     </form>
 </div>
 }

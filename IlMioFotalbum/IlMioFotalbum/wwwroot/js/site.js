@@ -37,3 +37,17 @@ const initFilter = () => {
 
     filter.addEventListener("input", (e) => loadFoto(e.target.value));
 };
+
+function submitForm(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("ms-email").value;
+    const message = document.getElementById("ms-message").value;
+
+    axios.post("api/contactus", { email, message })
+        .then(res => {
+            console.log(res.data);
+        }).catch(err => {
+            console.error(err);
+        });
+};
