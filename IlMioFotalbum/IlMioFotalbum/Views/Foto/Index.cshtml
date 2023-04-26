@@ -1,40 +1,18 @@
-﻿@*
-@model Foto[]*@
-
+﻿
 @{
     ViewData["Title"] = "Home Page";
-
-     //var fotos = @Model;
 }
 
 <div class="container text-center ms-background-index px-2 py-2">
     <h1 class="ms-main-title">Le mie foto principali!</h1>
 
+    <div class="text-start mx-4" id="foto-filter">
+        <label class="d-block">Cerca le immagini per nome!</label>
+        <input class="ms-search-input py-1 px-1 my-2" placeholder="Inserisci il nome" type="text" value="" />
+    </div>
+
     <div class="row px-4 py-2 gx-2" id="ms-fotos">
-@*        @foreach (var foto in fotos)
-        {
-            @if (@foto.IsVisible is "Si")
-            {
-                <div class="col py-2">
-                    <div class="card" style="width: 18rem;">
-                      <img src="@foto.ImgPath" class="card-img-top" alt="@foto.Name">
-                      <div class="card-body">
-                        <h5 class="card-title">@foto.Name</h5>
-                        <p class="card-text">@foto.Description</p>
-                        <div class="py-2">
-                            @foreach (var cat in @foto.Categories!)
-                            {
-                                <a href="@Url.Action("Index", "Category")" class="badge bg-warning">@cat.Name</a>
-                            }
-                        </div>
-                        <a href="@Url.Action("Detail", "Foto", new { id = foto.Id })" class="btn btn-success">
-                            Dettagli
-                        </a>
-                      </div>
-                    </div>
-                </div>
-            }
-        }*@
+
     </div>
 
     @if (User.IsInRole("Admin"))
@@ -64,12 +42,8 @@
 {
     <script>
 
-        const fotos = getFotos()
-            .then(res => {
-                const fotos = res.data;
-                renderFotos(fotos);
-                console.log(fotos);
-        });
+        loadFoto();
+        initFilter();
 
     </script>
 }

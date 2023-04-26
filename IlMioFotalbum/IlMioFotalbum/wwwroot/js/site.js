@@ -2,9 +2,15 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-const getFotos = () => axios.get("api/foto");
+const loadFoto = (filter) => {
+    getFotos(filter)
+    .then(res => {
+        const fotos = res.data;
+        renderFotos(fotos);
+    });
+}
 
-/*const renderFotos = (fotos) => { };*/
+const getFotos = name => axios.get("api/foto", name ? { params: { name } } : {  });
 
 const renderFotos = fotos => {
     const fotosBody = document.querySelector("#ms-fotos");
@@ -25,3 +31,9 @@ const fotoComponent = foto => `
                 </div>
             </div>
         `;
+
+const initFilter = () => {
+    const filter = document.querySelector("#foto-filter input");
+
+    filter.addEventListener("input", (e) => loadFoto(e.target.value));
+};

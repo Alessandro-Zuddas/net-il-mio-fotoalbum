@@ -8,6 +8,7 @@ namespace IlMioFotalbum.Models
     {
         public DbSet<Foto> Fotos { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ContactUsForm> contactUsForms { get; set; }
 
         public FotoContext()
         {

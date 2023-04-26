@@ -39,4 +39,9 @@ body {
     overflow-y: auto;
     background-color: whitesmoke;
 }
->>>>>>> 89279a5e3ac80e423021da1b4a40f2b05d830959
+/*>>>>>>> 89279a5e3ac80e423021da1b4a40f2b05d830959
+*/
+
+.ms-search-input{
+    border-radius: 10px;
+}
