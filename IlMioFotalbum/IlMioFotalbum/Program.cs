@@ -8,7 +8,6 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddDbContext<FotoContextIdentity>(options =>
     options.UseSqlServer("Data Source=localhost;Initial Catalog=AlbumDb;Integrated Security=True;Pooling=False;TrustServerCertificate = True"));
 
@@ -22,7 +21,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 // Permette di ignorare il cycling
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
