@@ -14,12 +14,44 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #403d39;
 }
 
-/*------- FOTOCONTROLLER(INDEX) MAIN -------*/
+.ms-header {
+    background-color: #403d39;
+}
 
-.ms-background-index{
+.ms-header-title{
+    font-size: 24px;
+}
+
+.ms-head-home:hover{
+    transform: scale(1.1);
+}
+
+.ms-head-privacy:hover {
+    transform: scale(1.1);
+}
+
+.ms-log-button {
+    transform: scale(1.1);
+}
+
+.ms-contactus-form{
+    color: white;
+}
+
+.ms-add-btn{
+    margin-left: 14px;
+}
+
+.ms-or-add {
+    margin-left: 73px;
+    margin-bottom: 10px;
+}
+/*------- FOTOCONTROLLER(INDEX) MAIN -------*/
+.ms-background-index {
     background-color: whitesmoke;
     border-radius: 10px;
 }
@@ -43,5 +75,6 @@ body {
 */
 
 .ms-search-input{
+    border: 0.5px solid black;
     border-radius: 10px;
 }

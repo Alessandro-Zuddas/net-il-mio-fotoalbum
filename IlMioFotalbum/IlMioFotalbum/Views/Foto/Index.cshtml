@@ -9,20 +9,23 @@
     <div class="text-start mx-4" id="foto-filter">
         <label class="d-block">Cerca le immagini per nome!</label>
         <input class="ms-search-input py-1 px-1 my-2" placeholder="Inserisci il nome" type="text" value="" />
+
+        <div class="text-start ms-add-btn">
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="ms-or-add"> <small>O</small> </div>
+                <a class="btn btn-primary" href="@Url.Action("Create", "Foto")">Aggiungi una foto!</a>   
+            }
+        </div>
     </div>
 
     <div class="row px-4 py-2 gx-2" id="ms-fotos">
 
     </div>
-
-    @if (User.IsInRole("Admin"))
-    {
-        <a class="btn btn-primary" href="@Url.Action("Create", "Foto")">Aggiungi</a>   
-    }
 </div>
 @if (!User.IsInRole("Admin"))
 {
-<div class="container-xs mt-2">
+<div class="container-xs mt-2 ms-contactus-form">
     <form onsubmit="submitForm(event)">
         <h1>Contattaci!</h1>
         <div class="my-2">
